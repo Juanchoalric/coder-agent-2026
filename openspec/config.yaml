@@ -1,0 +1,48 @@
+schema: spec-driven
+
+context: |
+  Hybrid sales reporting cell (blueprint.md, Spanish).
+  Stack: Python 3.13 + pandas 3.0.3 + numpy 2.5.1 for ETL/consolidation.
+  Frontend: single-file static HTML with Tailwind CSS, Chart.js, DataTables via CDN.
+  Inputs: Usuarios_Ventas_2026.xlsx (customer/transaction), Ventas_Productos_2026.xlsx (sales/product).
+  Join key: ID Transacción. Read-only over source Excels. Human-in-the-loop before release.
+  Output: single HTML dashboard embedding processed JSON for Chart.js.
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Respect blueprint guardrails: read-only Excels, no public exposure, dtype validation before JS injection
+  specs:
+    - Use Given/When/Then for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+    - Cover data validation: NaN/text in Total (USD), ID join match rate threshold (90%)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+    - Separate ETL (Python) from template generation (HTML/JS injection)
+  tasks:
+    - Group by phase, use hierarchical numbering
+    - Keep tasks completable in one session
+  apply:
+    - Follow existing code patterns
+    tdd: false
+    test_command: ""
+  verify:
+    test_command: ""
+    build_command: ""
+    coverage_threshold: 0
+  archive:
+    - Warn before merging destructive deltas
+
+testing:
+  strict_tdd: false
+  reason: "No test runner detected: pytest not installed, no pytest.ini/pyproject.toml/Makefile. Python 3.13 stdlib unittest available but no project test infrastructure configured."
+  runner: ""
+  unit: false
+  integration: false
+  e2e: false
+  coverage: false
+  linter: ""
+  type_checker: ""
+  formatter: ""
+  recommendation: "Install pytest + pytest-cov in a project venv (pip available) and re-run sdd-init to enable strict TDD."
