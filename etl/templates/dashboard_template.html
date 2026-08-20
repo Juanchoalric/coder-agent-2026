@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Ventas 2026 | Ene-May 2026</title>
+  <!--
+    Generado por el pipeline ETL (python -m etl build). No editar a mano.
+    Librerías frontend vendored e inline (D1): Tailwind CSS, Chart.js, jQuery, DataTables.
+    Periodo: Ene-May 2026 (D2) - sin afirmaciones de año completo.
+  -->
+  {{VENDOR_CSS}}
+  <style>
+    body { background-color: #f1f5f9; }
+    .kpi-card { transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .kpi-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1); }
+    .chart-box { min-height: 260px; position: relative; }
+    canvas { max-height: 240px; }
+    .dataTables_wrapper .dataTables_filter input {
+      border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.375rem 0.75rem;
+    }
+    .dataTables_wrapper .dataTables_length select {
+      border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 0.25rem 0.5rem;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      border-radius: 0.5rem; padding: 0.25rem 0.75rem; margin: 0 0.125rem;
+    }
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      background: #4f46e5 !important; border-color: #4f46e5 !important; color: #fff !important;
+    }
+    table.dataTable.display tbody tr:hover { background-color: #eef2ff; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800">
+
+  <header class="bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard de Ventas 2026</h1>
+          <p class="mt-1 text-sm text-slate-300">
+            Consolidación de <span id="meta-sources"></span> · Generado el <span id="meta-generated"></span>
+          </p>
+        </div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-indigo-500/20 px-4 py-1.5 text-sm font-semibold text-indigo-200 ring-1 ring-inset ring-indigo-400/30">
+          <span class="h-2 w-2 rounded-full bg-indigo-400"></span>
+          Periodo: Ene-May 2026
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
+
+    <!-- KPI cards (D3) -->
+    <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Indicadores clave">
+      <div class="kpi-card rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <p class="text-sm font-medium text-slate-500">Total ventas (USD)</p>
+        <p id="kpi-total" class="mt-1 text-2xl font-bold text-slate-900">-</p>
+        <p id="kpi-total-sub" class="mt-1 text-xs text-slate-400">-</p>
+      </div>
+      <div class="kpi-card rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <p class="text-sm font-medium text-slate-500">Unidades vendidas</p>
+        <p id="kpi-units" class="mt-1 text-2xl font-bold text-slate-900">-</p>
+        <p id="kpi-units-sub" class="mt-1 text-xs text-slate-400">-</p>
+      </div>
+      <div class="kpi-card rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <p class="text-sm font-medium text-slate-500">Transacciones</p>
+        <p id="kpi-transactions" class="mt-1 text-2xl font-bold text-slate-900">-</p>
+        <p id="kpi-transactions-sub" class="mt-1 text-xs text-slate-400">-</p>
+      </div>
+      <div class="kpi-card rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <p class="text-sm font-medium text-slate-500">Ticket promedio</p>
+        <p id="kpi-avg" class="mt-1 text-2xl font-bold text-slate-900">-</p>
+        <p id="kpi-avg-sub" class="mt-1 text-xs text-slate-400">-</p>
+      </div>
+    </section>
+
+    <!-- Charts (D4: 6+ Chart.js) -->
+    <section class="mt-6 grid grid-cols-1 gap-4 lg:grid-cols-2" aria-label="Gráficos">
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Ventas por mes (USD) · Ene-May 2026</h2>
+        <canvas id="chart-monthly"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Ventas por categoría (USD)</h2>
+        <canvas id="chart-category"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Ventas por región</h2>
+        <canvas id="chart-region"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Método de pago</h2>
+        <canvas id="chart-payment"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Top productos por ventas (USD)</h2>
+        <canvas id="chart-top-products"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Ventas por país (USD)</h2>
+        <canvas id="chart-country"></canvas>
+      </div>
+      <div class="chart-box rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 lg:col-span-2">
+        <h2 class="mb-3 text-sm font-semibold text-slate-600">Ventas por rango etario (USD)</h2>
+        <canvas id="chart-age"></canvas>
+      </div>
+    </section>
+
+    <!-- Transacciones (D5: DataTables search/sort/pagination) -->
+    <section class="mt-6 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+      <h2 class="mb-3 text-sm font-semibold text-slate-600">Transacciones</h2>
+      <div class="overflow-x-auto">
+        <table id="transactions-table" class="display stripe hover cell-border" style="width:100%">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>País</th>
+              <th>Edad</th>
+              <th>Producto</th>
+              <th>Categoría</th>
+              <th>Cant.</th>
+              <th>Precio Unit.</th>
+              <th>Total (USD)</th>
+              <th>Región</th>
+              <th>Método de Pago</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="mt-6 rounded-2xl bg-white p-4 text-xs text-slate-500 shadow-sm ring-1 ring-slate-200">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-1">
+        <span>Run ID: <code id="meta-run" class="text-slate-700"></code></span>
+        <span>Match rate: <code id="meta-match" class="text-slate-700"></code></span>
+        <span>Datos: Ene-May 2026 (sin comparación anual)</span>
+        <span class="ml-auto text-slate-400">Generado por etl · auditado en data_log.csv</span>
+      </div>
+    </footer>
+  </main>
+
+  <script type="application/json" id="meta">{{META}}</script>
+  <script type="application/json" id="payload">{{PAYLOAD}}</script>
+
+  {{VENDOR_JS}}
+
+  <script>
+  (function () {
+    "use strict";
+    var meta = JSON.parse(document.getElementById("meta").textContent);
+    var payload = JSON.parse(document.getElementById("payload").textContent);
+
+    var usd0 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+    var usd2 = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 2 });
+    var num = new Intl.NumberFormat("en-US");
+
+    // --- Header / footer meta -------------------------------------------------
+    document.getElementById("meta-sources").textContent = (meta.source_files || []).join(" + ");
+    document.getElementById("meta-generated").textContent = meta.generated_at || "-";
+    document.getElementById("meta-run").textContent = meta.run_id || "-";
+    document.getElementById("meta-match").textContent =
+      meta.match_rate != null ? (meta.match_rate * 100).toFixed(0) + "%" : "-";
+
+    // --- KPI cards (D3) --------------------------------------------------------
+    document.getElementById("kpi-total").textContent = usd0.format(payload.kpis.total_usd);
+    document.getElementById("kpi-total-sub").textContent =
+      payload.kpis.transactions + " transacciones · " + usd0.format(payload.kpis.avg_order_usd) + " prom.";
+    document.getElementById("kpi-units").textContent = num.format(payload.kpis.units);
+    document.getElementById("kpi-units-sub").textContent = "unidades en el periodo";
+    document.getElementById("kpi-transactions").textContent = num.format(payload.kpis.transactions);
+    document.getElementById("kpi-transactions-sub").textContent = "ventas registradas";
+    document.getElementById("kpi-avg").textContent = usd2.format(payload.kpis.avg_order_usd);
+    document.getElementById("kpi-avg-sub").textContent = "por transacción";
+
+    // --- Charts (D4) -------------------------------------------------------------
+    var PALETTE = ["#4f46e5", "#0ea5e9", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6", "#14b8a6", "#f97316", "#6366f1", "#22c55e"];
+    var chartDefaults = { responsive: true, maintainAspectRatio: false };
+    var usdTick = function (value) { return "$" + num.format(value); };
+    var monthChart = new Chart(document.getElementById("chart-monthly"), {
+      type: "bar",
+      data: {
+        labels: payload.monthly.map(function (m) { return m.label; }),
+        datasets: [{
+          label: "Ventas (USD)",
+          data: payload.monthly.map(function (m) { return m.total_usd; }),
+          backgroundColor: "#4f46e5", borderRadius: 6
+        }]
+      },
+      options: Object.assign({}, chartDefaults, {
+        scales: { y: { ticks: { callback: usdTick } } },
+        plugins: { tooltip: { callbacks: { label: function (c) { return " " + usd0.format(c.parsed.y); } } } }
+      })
+    });
+
+    var categoryChart = new Chart(document.getElementById("chart-category"), {
+      type: "bar",
+      data: {
+        labels: payload.by_category.map(function (d) { return d.categoria; }),
+        datasets: [{
+          label: "Ventas (USD)",
+          data: payload.by_category.map(function (d) { return d.total_usd; }),
+          backgroundColor: PALETTE, borderRadius: 6
+        }]
+      },
+      options: Object.assign({}, chartDefaults, {
+        indexAxis: "y",
+        scales: { x: { ticks: { callback: usdTick } } },
+        plugins: { tooltip: { callbacks: { label: function (c) { return " " + usd0.format(c.parsed.x); } } } }
+      })
+    });
+
+    function doughnut(canvasId, rows, valueKey, labelKey) {
+      return new Chart(document.getElementById(canvasId), {
+        type: "doughnut",
+        data: {
+          labels: rows.map(function (d) { return d[labelKey]; }),
+          datasets: [{
+            data: rows.map(function (d) { return d[valueKey]; }),
+            backgroundColor: PALETTE
+          }]
+        },
+        options: Object.assign({}, chartDefaults, {
+          plugins: {
+            legend: { position: "right" },
+            tooltip: { callbacks: { label: function (c) { return " " + c.label + ": " + usd0.format(c.parsed); } } }
+          }
+        })
+      });
+    }
+
+    doughnut("chart-region", payload.by_region, "total_usd", "region");
+    doughnut("chart-payment", payload.by_payment, "total_usd", "metodo");
+
+    var topProducts = new Chart(document.getElementById("chart-top-products"), {
+      type: "bar",
+      data: {
+        labels: payload.top_products.map(function (d) { return d.producto; }),
+        datasets: [{
+          label: "Ventas (USD)",
+          data: payload.top_products.map(function (d) { return d.total_usd; }),
+          backgroundColor: "#0ea5e9", borderRadius: 6
+        }]
+      },
+      options: Object.assign({}, chartDefaults, {
+        indexAxis: "y",
+        scales: { x: { ticks: { callback: usdTick } } },
+        plugins: { tooltip: { callbacks: { label: function (c) { return " " + usd0.format(c.parsed.x); } } } }
+      })
+    });
+
+    var countryChart = new Chart(document.getElementById("chart-country"), {
+      type: "bar",
+      data: {
+        labels: payload.by_country.map(function (d) { return d.pais; }),
+        datasets: [{
+          label: "Ventas (USD)",
+          data: payload.by_country.map(function (d) { return d.total_usd; }),
+          backgroundColor: "#10b981", borderRadius: 6
+        }]
+      },
+      options: Object.assign({}, chartDefaults, {
+        scales: { y: { ticks: { callback: usdTick } } },
+        plugins: { tooltip: { callbacks: { label: function (c) { return " " + usd0.format(c.parsed.y); } } } }
+      })
+    });
+
+    var ageChart = new Chart(document.getElementById("chart-age"), {
+      type: "bar",
+      data: {
+        labels: payload.by_age_bucket.map(function (d) { return d.bucket; }),
+        datasets: [{
+          label: "Ventas (USD)",
+          data: payload.by_age_bucket.map(function (d) { return d.total_usd; }),
+          backgroundColor: "#f59e0b", borderRadius: 6
+        }]
+      },
+      options: Object.assign({}, chartDefaults, {
+        scales: { y: { ticks: { callback: usdTick } } },
+        plugins: { tooltip: { callbacks: { label: function (c) { return " " + usd0.format(c.parsed.y); } } } }
+      })
+    });
+
+    // --- DataTable (D5: client-side search, sort, pagination) ---------------------
+    var currency = { render: function (data) { return usd2.format(data); } };
+    $("#transactions-table").DataTable({
+      data: payload.transactions,
+      columns: [
+        { data: "id" },
+        { data: "fecha" },
+        { data: "cliente" },
+        { data: "pais" },
+        { data: "edad" },
+        { data: "producto" },
+        { data: "categoria" },
+        { data: "cantidad" },
+        { data: "precio_unitario_usd", render: currency.render },
+        { data: "total_usd", render: currency.render },
+        { data: "region" },
+        { data: "metodo_pago" }
+      ],
+      pageLength: 10,
+      lengthMenu: [[10, 25, 50, 100], [10, 25, 50, 100]],
+      order: [[1, "asc"]],
+      language: {
+        search: "Buscar:",
+        lengthMenu: "Mostrar _MENU_ registros",
+        info: "Mostrando _START_ a _END_ de _TOTAL_ transacciones",
+        infoEmpty: "Sin registros",
+        infoFiltered: "(filtrado de _MAX_ en total)",
+        zeroRecords: "No se encontraron transacciones",
+        emptyTable: "Sin datos",
+        paginate: { previous: "Anterior", next: "Siguiente" }
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
