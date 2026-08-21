@@ -26,23 +26,23 @@ rules:
   apply:
     - Follow existing code patterns
     tdd: false
-    test_command: ""
+    test_command: ".venv/bin/python -m unittest discover -s tests"
   verify:
-    test_command: ""
-    build_command: ""
+    test_command: ".venv/bin/python -m unittest discover -s tests"
+    build_command: ".venv/bin/python -m etl build"
     coverage_threshold: 0
   archive:
     - Warn before merging destructive deltas
 
 testing:
   strict_tdd: false
-  reason: "No test runner detected: pytest not installed, no pytest.ini/pyproject.toml/Makefile. Python 3.13 stdlib unittest available but no project test infrastructure configured."
-  runner: ""
-  unit: false
-  integration: false
-  e2e: false
+  reason: "stdlib unittest suite active: 61 tests (0 skips) incl. headless-Chrome E2E, run via .venv/bin/python -m unittest discover -s tests. Build: .venv/bin/python -m etl build. 'python' is not on PATH; the venv interpreter is required."
+  runner: ".venv/bin/python -m unittest"
+  unit: true
+  integration: true
+  e2e: true
   coverage: false
   linter: ""
   type_checker: ""
   formatter: ""
-  recommendation: "Install pytest + pytest-cov in a project venv (pip available) and re-run sdd-init to enable strict TDD."
+  recommendation: "Optional: install pytest + pytest-cov in the project venv and re-run sdd-init to enable strict TDD and coverage thresholds."
