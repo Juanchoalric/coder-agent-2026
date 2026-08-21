@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-21T00:01:26Z",
+  "title": "Design System: Dashboard de Ventas 2026",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Apple Blue", "canonical": "#0071e3", "tonalRamp": ["#00264c", "#003f7f", "#0058b2", "#0072e5", "#198bff", "#4ca5fe", "#8ec6ff", "#cce5fe"] },
+      "accent-text": { "role": "primary", "displayName": "Deep Apple Blue", "canonical": "#0060df", "tonalRamp": ["#00204c", "#00367f", "#004cb2", "#0062e5", "#197cff", "#4c99fe", "#8ebfff", "#cce1fe"], "purpose": "Accent text on tinted backgrounds (contrast fix)." },
+      "ground": { "role": "neutral", "displayName": "Cloud Gray", "canonical": "#f5f5f7", "tonalRamp": ["#22222a", "#383846", "#4f4f63", "#66667f", "#7f7f99", "#9b9baf", "#c0c0cd", "#e2e2e8"] },
+      "surface": { "role": "neutral", "displayName": "Pure Surface", "canonical": "#ffffff", "tonalRamp": ["#262626", "#3f3f3f", "#595959", "#727272", "#8c8c8c", "#a5a5a5", "#c6c6c6", "#e5e5e5"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#1d1d1f", "tonalRamp": ["#242427", "#3d3d41", "#56565c", "#6e6e76", "#888890", "#a2a2a8", "#c5c5c8", "#e4e4e6"] },
+      "ink-secondary": { "role": "neutral", "displayName": "Secondary Ink", "canonical": "#6e6e73", "tonalRamp": ["#252527", "#3e3e41", "#57575b", "#707075", "#89898e", "#a3a3a7", "#c5c5c8", "#e4e4e6"] },
+      "tooltip": { "role": "neutral", "displayName": "Tooltip Ink", "canonical": "#1d1d1f", "tonalRamp": ["#242427", "#3d3d41", "#56565c", "#6e6e76", "#888890", "#a2a2a8", "#c5c5c8", "#e4e4e6"], "purpose": "Chart tooltip background; inverts ground/ink." },
+      "chart-blue": { "role": "data", "displayName": "Chart Apple Blue", "canonical": "#0071e3", "tonalRamp": ["#00264c", "#003f7f", "#0058b2", "#0072e5", "#198bff", "#4ca5fe", "#8ec6ff", "#cce5fe"] },
+      "chart-green": { "role": "data", "displayName": "Chart System Green", "canonical": "#34c759", "tonalRamp": ["#0f3c1b", "#1a652d", "#248d3f", "#2fb551", "#49cf6a", "#71da8b", "#a6e7b6", "#d6f4de"] },
+      "chart-orange": { "role": "data", "displayName": "Chart System Orange", "canonical": "#ff9500", "tonalRamp": ["#4c2c00", "#7f4a00", "#b26800", "#e58600", "#ff9f19", "#feb44c", "#ffd08e", "#fee9cc"] },
+      "chart-pink": { "role": "data", "displayName": "Chart System Pink", "canonical": "#ff2d55", "tonalRamp": ["#4c000e", "#7f0018", "#b20021", "#e5002b", "#ff1945", "#fe4c6e", "#ff8ea4", "#feccd5"] },
+      "chart-purple": { "role": "data", "displayName": "Chart System Indigo", "canonical": "#5e5ce6", "tonalRamp": ["#0a0a42", "#12106e", "#19179a", "#201ec6", "#3a38e0", "#6664e7", "#9e9df0", "#d3d2f8"] },
+      "chart-cyan": { "role": "data", "displayName": "Chart System Cyan", "canonical": "#64d2ff", "tonalRamp": ["#00364c", "#005a7f", "#007eb2", "#00a2e5", "#19bcff", "#4ccbfe", "#8edeff", "#ccf0fe"] },
+      "chart-yellow": { "role": "data", "displayName": "Chart System Yellow", "canonical": "#ffd60a", "tonalRamp": ["#4c3f00", "#7f6a00", "#b29400", "#e5bf00", "#ffd819", "#fee14c", "#ffec8e", "#fef6cc"] },
+      "chart-violet": { "role": "data", "displayName": "Chart System Purple", "canonical": "#af52de", "tonalRamp": ["#2e0c40", "#4d146b", "#6d1c95", "#8c24c0", "#a53eda", "#b969e2", "#d3a0ed", "#ebd4f6"] },
+      "chart-teal": { "role": "data", "displayName": "Chart System Teal", "canonical": "#30b0c7", "tonalRamp": ["#0e363d", "#185a66", "#227f8f", "#2ca3b8", "#46bdd2", "#6fcbdc", "#a4dee9", "#d5f0f5"] },
+      "chart-gray": { "role": "data", "displayName": "Chart System Gray", "canonical": "#8e8e93", "tonalRamp": ["#252527", "#3e3e41", "#57575b", "#707075", "#89898e", "#a3a3a7", "#c5c5c8", "#e4e4e6"] },
+      "dark-bg": { "role": "neutral", "displayName": "True Black", "canonical": "#000000", "tonalRamp": ["#000000", "#0e0e0f", "#1c1c1e", "#2c2c2e", "#3a3a3c", "#48484a", "#58585a", "#6e6e73"], "purpose": "Dark-mode page ground." },
+      "dark-surface": { "role": "neutral", "displayName": "Dark Surface", "canonical": "#1c1c1e", "tonalRamp": ["#050507", "#101012", "#1c1c1e", "#2c2c2e", "#3a3a3c", "#48484a", "#58585a", "#6e6e73"], "purpose": "Card, input, and footer surfaces in dark mode." },
+      "dark-ink": { "role": "neutral", "displayName": "Dark Ink", "canonical": "#f5f5f7", "tonalRamp": ["#22222a", "#383846", "#4f4f63", "#66667f", "#7f7f99", "#9b9baf", "#c0c0cd", "#e2e2e8"], "purpose": "Primary text in dark mode." },
+      "dark-ink-secondary": { "role": "neutral", "displayName": "Dark Secondary Ink", "canonical": "#a1a1a6", "tonalRamp": ["#262628", "#3f3f42", "#58585c", "#717174", "#8a8a8e", "#a1a1a6", "#bdbdc0", "#e0e0e1"], "purpose": "Labels, card titles, chart ticks, table headers, and meta in dark mode." },
+      "dark-ink-tertiary": { "role": "neutral", "displayName": "Dark Tertiary Ink", "canonical": "#98989f", "tonalRamp": ["#252528", "#3d3d41", "#56565b", "#6f6f75", "#87878d", "#98989f", "#b5b5ba", "#dcdce0"], "purpose": "The quietest supporting text in dark mode." },
+      "dark-hairline": { "role": "neutral", "displayName": "Dark Hairline", "canonical": "rgba(255, 255, 255, 0.12)", "tonalRamp": ["rgba(255,255,255,0.03)", "rgba(255,255,255,0.06)", "rgba(255,255,255,0.09)", "rgba(255,255,255,0.12)", "rgba(255,255,255,0.16)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.28)", "rgba(255,255,255,0.4)"], "purpose": "Default separator in dark mode." },
+      "dark-hairline-strong": { "role": "neutral", "displayName": "Dark Strong Hairline", "canonical": "rgba(255, 255, 255, 0.2)", "tonalRamp": ["rgba(255,255,255,0.05)", "rgba(255,255,255,0.1)", "rgba(255,255,255,0.15)", "rgba(255,255,255,0.2)", "rgba(255,255,255,0.3)", "rgba(255,255,255,0.4)", "rgba(255,255,255,0.55)", "rgba(255,255,255,0.7)"], "purpose": "Emphasized separator in dark mode - form controls and table header underline." },
+      "dark-accent": { "role": "primary", "displayName": "Dark Apple Blue", "canonical": "#0a84ff", "tonalRamp": ["#001e40", "#003568", "#004b90", "#0a6bc8", "#0a84ff", "#3b9bff", "#7dbbff", "#c2ddff"], "purpose": "The dark-mode interface accent." },
+      "dark-accent-strong": { "role": "primary", "displayName": "Dark Deep Apple Blue", "canonical": "#409cff", "tonalRamp": ["#00284f", "#00437f", "#005fb0", "#0a7ce0", "#409cff", "#6cb2ff", "#a3cdff", "#d8eaff"], "purpose": "Accent-colored text on tinted pills in dark mode (contrast fix)." },
+      "dark-accent-soft": { "role": "primary", "displayName": "Dark Accent Soft", "canonical": "rgba(10, 132, 255, 0.16)", "tonalRamp": ["rgba(10,132,255,0.04)", "rgba(10,132,255,0.08)", "rgba(10,132,255,0.12)", "rgba(10,132,255,0.16)", "rgba(10,132,255,0.22)", "rgba(10,132,255,0.28)", "rgba(10,132,255,0.38)", "rgba(10,132,255,0.5)"], "purpose": "The period pill tint in dark mode." },
+      "dark-header-bg": { "role": "neutral", "displayName": "Dark Header", "canonical": "rgba(0, 0, 0, 0.72)", "tonalRamp": ["rgba(0,0,0,0.18)", "rgba(0,0,0,0.36)", "rgba(0,0,0,0.54)", "rgba(0,0,0,0.72)", "rgba(0,0,0,0.8)", "rgba(0,0,0,0.88)", "rgba(0,0,0,0.95)", "rgba(0,0,0,1)"], "purpose": "The frosted header backdrop in dark mode." },
+      "dark-table-hover": { "role": "neutral", "displayName": "Dark Table Hover", "canonical": "#2c2c2e", "tonalRamp": ["#0a0a0b", "#151517", "#202022", "#2c2c2e", "#3a3a3c", "#48484a", "#58585a", "#6e6e73"], "purpose": "Row hover tint in dark mode." },
+      "dark-chart-grid": { "role": "data", "displayName": "Dark Chart Grid", "canonical": "rgba(255, 255, 255, 0.1)", "tonalRamp": ["rgba(255,255,255,0.025)", "rgba(255,255,255,0.05)", "rgba(255,255,255,0.075)", "rgba(255,255,255,0.1)", "rgba(255,255,255,0.14)", "rgba(255,255,255,0.18)", "rgba(255,255,255,0.25)", "rgba(255,255,255,0.35)"], "purpose": "Chart gridlines in dark mode." },
+      "dark-chart-tick": { "role": "data", "displayName": "Dark Chart Tick", "canonical": "#a1a1a6", "tonalRamp": ["#262628", "#3f3f42", "#58585c", "#717174", "#8a8a8e", "#a1a1a6", "#bdbdc0", "#e0e0e1"], "purpose": "Chart tick and legend text in dark mode." },
+      "dark-tooltip-bg": { "role": "neutral", "displayName": "Dark Tooltip Surface", "canonical": "#f5f5f7", "tonalRamp": ["#22222a", "#383846", "#4f4f63", "#66667f", "#7f7f99", "#9b9baf", "#c0c0cd", "#e2e2e8"], "purpose": "Chart tooltip background in dark mode; inverts the dark ground." },
+      "dark-tooltip-fg": { "role": "neutral", "displayName": "Dark Tooltip Ink", "canonical": "#1d1d1f", "tonalRamp": ["#242427", "#3d3d41", "#56565c", "#6e6e76", "#888890", "#a2a2a8", "#c5c5c8", "#e4e4e6"], "purpose": "Chart tooltip text in dark mode." },
+      "dark-doughnut-border": { "role": "data", "displayName": "Dark Doughnut Border", "canonical": "#1c1c1e", "tonalRamp": ["#050507", "#101012", "#1c1c1e", "#2c2c2e", "#3a3a3c", "#48484a", "#58585a", "#6e6e73"], "purpose": "Doughnut segment separators in dark mode." }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "KPI Value", "purpose": "The four decisive numbers; tabular, near-black, largest on screen." },
+      "title": { "displayName": "Header Title", "purpose": "Dashboard title in the frosted header." },
+      "label": { "displayName": "Label", "purpose": "KPI labels, card titles, and period pill text." },
+      "body": { "displayName": "Body", "purpose": "Table cells and supporting text; tnum + cv11 on." },
+      "table-header": { "displayName": "Table Header", "purpose": "Uppercase DataTable column heads." }
+    },
+    "shadows": [
+      { "name": "card-rest", "value": "0 4px 16px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04)", "purpose": "All surfaces at rest." },
+      { "name": "card-hover", "value": "0 10px 28px rgba(0, 0, 0, 0.09), 0 2px 6px rgba(0, 0, 0, 0.05)", "purpose": "KPI card hover lift." },
+      { "name": "focus-ring", "value": "0 0 0 3px rgba(0, 113, 227, 0.18)", "purpose": "DataTable control focus ring." },
+      { "name": "dark-card-rest", "value": "0 4px 16px rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.3)", "purpose": "All surfaces at rest in dark mode." },
+      { "name": "dark-card-hover", "value": "0 10px 28px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35)", "purpose": "KPI card hover lift in dark mode." }
+    ],
+    "motion": [
+      { "name": "kpi-reveal", "value": "0.5s cubic-bezier(0.22, 1, 0.36, 1), stagger 60ms (0/60/120/180ms), disabled under prefers-reduced-motion", "purpose": "The only authored animation; KPI row reveals on load." },
+      { "name": "kpi-hover", "value": "0.28s cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "KPI card transform + shadow on hover." },
+      { "name": "paginate-hover", "value": "0.15s ease", "purpose": "Pagination button background/color fade." },
+      { "name": "theme-transition", "value": "0.25s ease on background-color/border-color/color; disabled under prefers-reduced-motion", "purpose": "Color transition on theme switch (body, header, toggle, cards)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "KPI Card",
+      "kind": "card",
+      "refersTo": "kpi-card",
+      "description": "One decisive number with a label and a quiet sub-value; lifts on hover.",
+      "html": "<div class=\"ds-kpi\"><p class=\"ds-kpi-label\">Total ventas (USD)</p><p class=\"ds-kpi-value\">$274,285</p><p class=\"ds-kpi-sub\">100 transacciones · $2,743 prom.</p></div>",
+      "css": ".ds-kpi { background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.04); padding: 1.25rem 1.375rem; transition: transform 0.28s cubic-bezier(0.22,1,0.36,1), box-shadow 0.28s cubic-bezier(0.22,1,0.36,1); font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-kpi:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.09), 0 2px 6px rgba(0,0,0,0.05); } .ds-kpi-label { margin: 0; color: #6e6e73; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.02em; } .ds-kpi-value { margin: 0.375rem 0 0; color: #1d1d1f; font-size: clamp(1.75rem, 2.4vw, 2.375rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; } .ds-kpi-sub { margin: 0.375rem 0 0; color: #6e6e73; font-size: 0.75rem; }"
+    },
+    {
+      "name": "Surface Card",
+      "kind": "card",
+      "refersTo": "surface-card",
+      "description": "The standard white data container holding charts, tables, and meta.",
+      "html": "<div class=\"ds-card\"><h2 class=\"ds-card-title\">Ventas por mes (USD)</h2></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid rgba(0,0,0,0.06); border-radius: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.04); padding: 1.25rem 1.375rem; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-card-title { margin: 0 0 0.75rem; color: #6e6e73; font-size: 0.8125rem; font-weight: 600; letter-spacing: -0.01em; }"
+    },
+    {
+      "name": "Period Pill",
+      "kind": "chip",
+      "refersTo": "period-pill",
+      "description": "Fully round tinted pill showing the data period; accent text darkened for contrast.",
+      "html": "<span class=\"ds-pill\"><span class=\"ds-dot\"></span>Periodo: Ene-May 2026</span>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.375rem 0.875rem; border-radius: 999px; background: rgba(0,113,227,0.14); color: #0060df; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; font-size: 0.8125rem; font-weight: 600; white-space: nowrap; } .ds-dot { width: 0.5rem; height: 0.5rem; border-radius: 999px; background: #0060df; }"
+    },
+    {
+      "name": "Table Search Input",
+      "kind": "input",
+      "refersTo": "table-input",
+      "description": "DataTable search field: surface, hairline stroke, accent focus ring.",
+      "html": "<input type=\"search\" class=\"ds-input\" placeholder=\"Buscar:\">",
+      "css": ".ds-input { border: 1px solid rgba(0,0,0,0.12); border-radius: 10px; padding: 0.5rem 0.75rem; font: inherit; color: #1d1d1f; background: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-input:focus { outline: none; border-color: #0071e3; box-shadow: 0 0 0 3px rgba(0,113,227,0.18); }"
+    },
+    {
+      "name": "Pagination Button",
+      "kind": "chip",
+      "refersTo": "pagination-button",
+      "description": "Round ghost page button; tints on hover, fills Apple Blue when current.",
+      "html": "<button class=\"ds-page\">2</button><button class=\"ds-page ds-current\">3</button>",
+      "css": ".ds-page { border-radius: 8px; padding: 0.25rem 0.625rem; margin: 0 0.1rem; color: #6e6e73; border: none; background: transparent; transition: background 0.15s ease, color 0.15s ease; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-page:hover { background: rgba(0,0,0,0.05); color: #1d1d1f; } .ds-current { background: #0071e3; color: #fff; } .ds-current:hover { background: #0071e3; color: #fff; }"
+    },
+    {
+      "name": "Table Header Cell",
+      "kind": "custom",
+      "refersTo": "table-header-cell",
+      "description": "Uppercase tracking column head over a strong hairline rule.",
+      "html": "<table class=\"ds-grid\"><thead><tr><th>Fecha</th><th>Cliente</th><th>Total (USD)</th></tr></thead></table>",
+      "css": ".ds-grid { border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-grid th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: #6e6e73; font-weight: 600; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 0.75rem 0.875rem; text-align: left; } .ds-grid td { padding: 0.625rem 0.875rem; color: #1d1d1f; border-bottom: 1px solid rgba(0,0,0,0.06); } .ds-grid tbody tr:hover { background-color: #f5f5f7; }"
+    },
+    {
+      "name": "Theme Toggle",
+      "kind": "custom",
+      "refersTo": "theme-toggle",
+      "description": "Circular hairline button with drawn SVG sun/moon icons; swaps icon and aria-pressed with the active theme.",
+      "html": "<button type=\"button\" class=\"ds-theme-toggle\" aria-label=\"Cambiar modo claro/oscuro\" aria-pressed=\"false\" title=\"Modo claro / oscuro\"><svg class=\"ds-icon-sun\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"4.2\"></circle><path d=\"M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6\"></path></svg><svg class=\"ds-icon-moon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" aria-hidden=\"true\"><path d=\"M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z\"></path></svg></button>",
+      "css": ".ds-theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 999px; border: 1px solid rgba(0,0,0,0.12); background: #ffffff; color: #6e6e73; cursor: pointer; flex-shrink: 0; transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Arial, sans-serif; } .ds-theme-toggle:hover { color: #1d1d1f; background: #f5f5f7; } .ds-theme-toggle:focus-visible { outline: 3px solid rgba(0,113,227,0.35); outline-offset: 2px; border-radius: 4px; } .ds-theme-toggle svg { width: 1.125rem; height: 1.125rem; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; } .ds-theme-toggle .ds-icon-moon { display: none; } [data-theme=\"dark\"] .ds-theme-toggle .ds-icon-sun { display: none; } [data-theme=\"dark\"] .ds-theme-toggle .ds-icon-moon { display: block; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet System Page",
+    "overview": "An internal sales instrument that reads like an Apple system page: calm, precise, all signal. It is a data-first utility for analysts and project managers who validate sales numbers before they move up the chain, so the visual system is engineered to disappear around the data. The world is built on a neutral gray ground with white surfaces, one Apple blue accent reserved for interactive and focal moments, hairline-only separation, and a frosted sticky header as its one signature surface.\n\nDensity is low and deliberate: a single KPI row, then quiet charts, then the transaction table, each in its own white card with a continuous 18px radius. Nothing competes with the numbers. The system refuses the dense bordered-card dashboard cliche and substitutes soft offset shadows and hairlines for weight. All figures render in tabular numerals with tight tracking so columns and values align as data.\n\nMotion is deliberately restrained - exactly one authored moment. The KPI row reveals on load, staggered by column, and that animation is the only one in the system; it is fully disabled under prefers-reduced-motion. This is an Operate-mode, Restrained-strategy world: neutral + one accent, no decorative surface.\n\nA dark mode extends the same world from a toggle in the frosted header. It inverts the ground/ink relationship - True Black #000000 ground, Dark Surface #1c1c1e cards - and shifts the accent to the brighter #0a84ff. It is a strict restyle: same 18px radius, same hairline-only separation, same single accent, no new motion, and the charts restyle through CSS variables.",
+    "keyCharacteristics": [
+      "One Apple blue accent (#0071e3) on a neutral ground (#f5f5f7)",
+      "Frosted sticky header as the signature surface (blur, not shadow)",
+      "Hairline-only separation; no heavy or dense borders",
+      "Continuous 18px radius on all surfaces",
+      "SF system font stack with tabular numerals and tight tracking",
+      "One authored motion moment (staggered KPI reveal, reduced-motion aware)",
+      "Data held in white surface cards with soft ambient shadows",
+      "Dark mode restyles the same world on an inverted True Black (#000000) ground with a brighter Apple blue (#0a84ff)"
+    ],
+    "rules": [
+      { "name": "The One-Accent Rule", "body": "Interface chrome carries exactly one accent: Apple Blue (#0071e3). The Apple system palette may appear only inside chart canvases, where color encodes data, never in UI chrome.", "section": "colors" },
+      { "name": "The Contrast Fix Rule", "body": "Accent-colored text never sits directly on the raw accent. On tinted surfaces (the period pill), text drops to Deep Apple Blue (#0060df); on solid accent surfaces (the active pagination page), text is white.", "section": "colors" },
+      { "name": "The Theme Continuity Rule", "body": "Dark mode is a strict restyle of the pinned world: the same continuous 18px radius, the same hairline-only separation, the same single accent (just brighter), and no new motion. Every dark token maps 1:1 to a light token with the same role.", "section": "colors" },
+      { "name": "The Data Face Rule", "body": "Every figure in the dashboard - KPI values, table cells, chart ticks - renders in tabular numerals (tnum 1). Numbers align as data; nothing wobbles.", "section": "typography" },
+      { "name": "The Quiet Label Rule", "body": "Labels are small (0.8125rem), semibold, and gray (Secondary Ink #6e6e73). They state what the value means and never compete with it. The single uppercase exception is the table header, and it stays at 0.75rem.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest. Elevation appears only as a response to state - the KPI card hover lift, the focus ring - and the header's blur is its resting state.", "section": "elevation" },
+      { "name": "The Single-Motion Rule", "body": "Exactly one authored animation exists: the KPI reveal (0.5s cubic-bezier(0.22, 1, 0.36, 1), fade + 10px rise), staggered at 60/120/180ms per card. It is disabled entirely under prefers-reduced-motion.", "section": "elevation" },
+      { "name": "The Continuous Radius Rule", "body": "One radius (18px) is the system's form language for all surfaces. Smaller radii exist only where the geometry is small enough to need them.", "section": "shapes" },
+      { "name": "The Hairline-Only Rule", "body": "Separation is achieved with hairlines, never weight. The strongest rule in the system is rgba(0, 0, 0, 0.12) at the table header.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the ground Cloud Gray (#f5f5f7), surfaces white, and chrome on exactly one Apple blue accent (#0071e3).",
+      "Do render every figure in tabular numerals with tight tracking, so columns align as data.",
+      "Do give every new surface the continuous 18px radius.",
+      "Do separate with hairlines (rgba(0, 0, 0, 0.06); 0.12 for emphasized rules) and soft ambient shadows, never heavy borders.",
+      "Do use Deep Apple Blue (#0060df) for accent-colored text that sits on tinted backgrounds.",
+      "Do darken tooltip surfaces (Ink #1d1d1f) with light text, and keep chart gridlines at hairline opacity.",
+      "Do respect prefers-reduced-motion; the KPI reveal must be the only authored animation.",
+      "Do treat dark mode as a strict restyle: same radius, hairlines, one accent, and no new motion - only the palette inverts.",
+      "Do let the stored theme choice win over the system preference, and keep aria-pressed in sync with the applied theme."
+    ],
+    "donts": [
+      "Don't add a second accent to the interface chrome - the Apple system palette is for chart data encoding only.",
+      "Don't animate anything beyond the KPI reveal and state transitions.",
+      "Don't introduce heavy, dense, or multi-pixel borders; the dense bordered-card dashboard is the explicit anti-reference.",
+      "Don't set uppercase or wide-tracking text outside the DataTable header.",
+      "Don't introduce a second font family; one SF system stack carries the entire interface.",
+      "Don't lift surfaces at rest; elevation is reserved for the KPI hover and the header's blur.",
+      "Don't hardcode light-mode colors inside chart canvases; read the theme tokens so charts stay legible on True Black (#000000).",
+      "Don't introduce dark-specific surfaces, radii, or animations; the dark world is the light world with an inverted palette."
+    ]
+  }
+}
